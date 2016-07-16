@@ -1,0 +1,41 @@
+<ion-header>
+
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{login | uppercase}} Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding *ngIf="org">
+  <ion-card>
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]="org.avatar_url" [alt]="org.name"/>
+      </ion-avatar>
+      <h2>{{org.name || org.login}}</h2>
+      <p>{{org.location || org.type}}</p>
+    </ion-item>
+    <img [src]="org.avatar_url"/>
+    <ion-card-content>
+      <p style="text-align:center;"><strong>Started on:&nbsp;</strong>{{org.created_at | date:'mediumDate'}}</p>
+      <div *ngIf="org.decription">
+        <p>{{org.description}}</p>
+      </div>
+      <div class="flex-container">
+        <div class="icon-container">
+          <p><strong>Repos:&nbsp;</strong>{{org.public_repos}}</p>
+        </div>
+        <div class="icon-container">
+          <p><strong>Gists:&nbsp;</strong>{{org.public_gists}}</p>
+        </div>
+        <div class="icon-container">
+          <p><strong>Followers:&nbsp;</strong>{{org.followers}}</p>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

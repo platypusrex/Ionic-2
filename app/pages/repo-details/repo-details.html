@@ -1,0 +1,43 @@
+<ion-header>
+
+  <ion-navbar>
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{repoName}} Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding *ngIf="repo">
+  <ion-card>
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]="repo.owner.avatar_url"/>
+      </ion-avatar>
+      <h2>{{repo.name}}</h2>
+      <p>{{repo.owner.login}}</p>
+    </ion-item>
+    <img [src]="repo.owner.avatar_url" alt="repo.full_name"/>
+    <icon-card-content>
+      <div class="content-container">
+        <p>{{repo.description}}</p>
+      </div>
+    </icon-card-content>
+    <div class="flex-container">
+      <div class="icon-container">
+        <ion-icon ios="ios-star" md="md-star"></ion-icon>
+        <span>&nbsp;{{repo.stargazers_count}}</span>
+      </div>
+      <div class="icon-container">
+        <ion-icon ios="ios-eye" md="md-eye"></ion-icon>
+        <span>&nbsp;{{repo.watchers_count}}</span>
+      </div>
+      <div class="icon-container">
+        <ion-icon ios="ios-bug" md="md-bug"></ion-icon>
+        <span>&nbsp;{{repo.open_issues_count}}</span>
+      </div>
+    </div>
+  </ion-card>
+</ion-content>
